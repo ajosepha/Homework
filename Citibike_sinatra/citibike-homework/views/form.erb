@@ -1,0 +1,25 @@
+<h1>Map my route!</h1>
+<form action="/map" method="POST">
+
+	<label for="POST-start">Start:</label>
+  <select id="POST-start" name="start">
+        <% @data.each do |c| %>
+         <option value="<%= c["name"] %>"><%= c["name"] %>
+         </option>
+      </option>
+    <% end %>
+  </select>
+
+  </br>
+
+  <label for="POST-end">End:</label>
+  <select id="POST-end" name="end">
+    <% @data.each do |c| %>
+      <option value="<%= c["name"] %>"><%= c["name"] %></option>
+    <% end %>
+  </select>
+</br>
+
+<button type="submit" value="Route">Route</button>
+
+</form>

@@ -1,0 +1,10 @@
+<h1>THE DATA</h1>
+<a href="/form">Map my route!</a>
+</br>
+<p>Location: longitude, latitude</p>
+</br>
+<% @data.each do |hash| %>
+        <ul><%= hash["name"]%>, <%= hash["lng"] %> <%= hash["lat"]%>
+xx        </ul>
+        </br>
+<% end %>
