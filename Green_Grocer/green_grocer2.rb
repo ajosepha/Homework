@@ -33,7 +33,7 @@ def generateCart
     end
     ap cart  
 end
-generateCart
+
 
 # #what is an example of what this will output?
 # # cart = [{"PEANUTBUTTER"=>{:price=>3.0, :clearance=>true}}
@@ -67,32 +67,79 @@ def clearance(my_cart)
             item.each do |string, hash|
                 #into each line of the my cart {:price=>2.5, :clearance=>false}
                 if hash[:clearance] == true
-                    hash[:price] = (hash[:price] * 0.80).round /100
-                    puts my_cart
+                    hash[:price] = hash[:price] * 0.80
                 end
+                ap my_cart
             end    
         end
 end
-clearance(generateCart)
+#clearance(generateCart)
+
+def count_items(my_cart)
+    counts = { }
+    my_cart.each do |item|
+        item.each do |name, attributes|
+            counts[name] = my_cart.select{|other_item| other_item ==item }.size
+            # if item[name] == counts[name]
+            #     attributes[:count]==counts[name]
+            # end
+            counts.each do |key, value|
+                if item[name] == key
+                    attributes[:number] = value
+                end
+                #ap key
+                #ap value
+                #if key == item[name]
+        end
+        
+    end
+       
+    end 
+    #ap my_cart  
+ end
+count_items(generateCart)
+
+#count_items = {"PEANUTBUTTER"=>1, "CHEESE"=>1, "BEER"=>1, "ALMONDS"=>1, "AVOCADO"=>1}
+
+def divide_items(my_cart, count)
+    my_cart.each do |item|
+        #eg item: {"KALE" => { :price => 3.0, :clearance => false }
+        item.each do |name, attributes|
+            #ap attributes
+            #attributes = :price => 2.5,:clearance => false
+        end
+        #     if item["name"] == count[name]
+        #         attributes[:price] = attributes[:price] * 0.8
+        #     end
+        # end               
+    end
+end
+
+# count = count_items(generateCart)
+# ap count
+#divide_items(generateCart, count)
+
+
+#elements/what to call
+
+
+    #want to compare items in count items to the items in my cart.
+    #will require a conditional statement
+
+# def count_items(my_cart)
+#     my_cart.each do |item|
+#         count = Hash.new(0)
+#         item.each { | v | count.store(v, count[v]+1) }
+#     end
+#     ap count
+# end
+# count_items(generateCart)
+
+    #count will have the item and the number of times it is in the array of items
+
 
 #how many items are in my cart
 #want to change the count of items
-count_items       
+      
 
 
-# def more_than_one
-
-# end  
-
-##the cart is currently an array of individual items, translate it into a hash that includes the counts for each item
-#   For example if your cart was [  {"AVOCADO" => {:price => 3.00, :clearance => true}},
-# {"AVOCADO" => {:price => 3.00, :clearance => true}}]
-#   it would become {"AVOCADO" => {:price => 3.00, :clearance => true}, :count => 2}
-# ##create a checkout method that calculates the total cost of the cart
-##when checking out, check the coupons and apply the discount if the proper number of items is present
-##if any of the items are on clearance add a 20% discount
-##if the customer has 2 of the same coupon, triple the discount
-##if none of the items purchased have a unit price greater than 5$ give the customer a 10$ discount off the whole cart
-
-
-# https://www.youtube.com/watch?v=-RuSCACXmXs
