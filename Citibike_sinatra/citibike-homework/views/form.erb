@@ -15,7 +15,7 @@
   <label for="POST-end">End:</label>
   <select id="POST-end" name="end">
     <% @data.each do |c| %>
-      <option value="<%= c["name"] %>"><%= c["name"] %></option>
+      <option value="<%=c["name"] %>"> <%=c["name"] %> </option>
     <% end %>
   </select>
 </br>

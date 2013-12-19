@@ -1,0 +1,46 @@
+
+<h1>Which secondary Wizard of Oz Character are you?</h1>
+
+ <br></br>
+
+<form action="/results" method="POST">
+
+
+
+<label for="food">What do want to eat?</label>
+<select id="food" name="food">
+	<%@food.each do |item| %>
+		<option value="<%= item %>"><%= item %>
+		</option>
+	<% end %>
+</select>
+ <br></br>
+
+<label for="home">Where do you live?</label>
+<select id="home" name="home">
+	<%@home.each do |house| %>
+		<option value="<%= house %>"><%= house %>
+		</option>
+	<% end %>
+</select>
+
+ <br></br>
+
+<label for="fear">What's your greatest fear?</label>
+<select id="fear" name="fear">
+	<%@fear.each do |peur| %>
+		<option value="<%= peur %>"><%=peur %>
+		</option>
+		<%end %>
+	</select>
+
+	
+
+	<br/>
+
+	 <button type="submit" value="results">You are...</button>
+</form>
+
+
+
+
